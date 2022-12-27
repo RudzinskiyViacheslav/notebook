@@ -68,7 +68,7 @@ def show_Birthdays():
     ent_Show_Birthdays['state'] = 'normal'
     ent_Show_Birthdays.delete('1.0', 'end')
     data_of_birth = show_birth()
-    if data_of_birth is None:
+    if not data_of_birth:
         ent_Show_Birthdays.insert('end', 'Сегодня ни у кого нет дня рождения')
     else:
         for item in data_of_birth:
@@ -209,7 +209,8 @@ w = w // 2  # середина экрана
 h = h // 2
 w = w - 1275  # смещение от середины
 h = h - 700
-window.geometry('1150x1300+{}+{}'.format(w, h))
+window.geometry('2100x800+{}+{}'.format(w, h))
+# window.geometry('2150x1300')
 #window.resizable(False, False)
 window.configure(background='#D9CDB8')
 
@@ -264,67 +265,69 @@ btn_Show_Birthdays = Button(window, text="У кого День Рождения"
 btn_Show_Birthdays.place(x=900,y=590)
 
 #Изменения данных человека
-Label(window, text="Изменить данные в записи", font='Inter 15', bg='#D9CDB8', ).place(x=500, y=770)
+Label(window, text="Изменить данные в записи", font='Inter 15', bg='#D9CDB8', ).place(x=1500, y=25)
 
 box_select_Data = Listbox(window, width=131, height=8, bg='#594036', borderwidth=0,font='Inter 10',fg='white')
-box_select_Data.place(x=20,y=800)
-btn_Choose_Data = Button(window, text="Выбрать запись", fg= 'white', font='Inter 10', bg='#260101', width=20 ,height=2,
+box_select_Data.place(x=1160,y=90)
+
+btn_Choose_Data = Button(window, text="Выбрать запись", fg= 'white', font='Inter 15', bg='#260101', width=20 ,height=2,
                          command=choose_Data)
-btn_Choose_Data.place(x=960,y=860)
+btn_Choose_Data.place(x=1500,y=250)
 
-Label(window, text="ФИО", font='Inter 10 bold', bg='#D9CDB8', ).place(x=20, y=950)
-Label(window, text="Адрес", font='Inter 10 bold', bg='#D9CDB8', ).place(x=620, y=950)
+Label(window, text="ФИО", font='Inter 10 bold', bg='#D9CDB8', ).place(x=1160, y=350)
+Label(window, text="Адрес", font='Inter 10 bold', bg='#D9CDB8', ).place(x=1620, y=350)
 
-ent_Change_Name = Text(window, fg= 'white', font='Inter 10', bg='#594036', width=70 ,height=1, padx=10, pady=10,
+ent_Change_Name = Text(window, fg= 'white', font='Inter 10', bg='#594036', width=60 ,height=1, padx=10, pady=10,
                        state='disabled')
-ent_Change_Name.place(x=20,y=980)
+ent_Change_Name.place(x=1160,y=380)
 
-ent_Change_Adress = Text(window, fg= 'white', font='Inter 10', bg='#594036', width=70 ,height=1, padx=10, pady=10,
+ent_Change_Adress = Text(window, fg= 'white', font='Inter 10', bg='#594036', width=60 ,height=1, padx=10, pady=10,
                          state='disabled')
-ent_Change_Adress.place(x=620,y=980)
+ent_Change_Adress.place(x=1620,y=380)
 
-Label(window, text="Телефон", font='Inter 10 bold', bg='#D9CDB8', ).place(x=20, y=1020)
-Label(window, text="Место работы/учёбы", font='Inter 10 bold', bg='#D9CDB8', ).place(x=620, y=1020)
+Label(window, text="Телефон", font='Inter 10 bold', bg='#D9CDB8', ).place(x=1160, y=420)
+Label(window, text="Место работы/учёбы", font='Inter 10 bold', bg='#D9CDB8', ).place(x=1620, y=420)
 
-ent_Change_Phone = Text(window, fg= 'white', font='Inter 10', bg='#594036', width=70 ,height=1, padx=10, pady=10,
+ent_Change_Phone = Text(window, fg= 'white', font='Inter 10', bg='#594036', width=60 ,height=1, padx=10, pady=10,
                         state='disabled')
-ent_Change_Phone.place(x=20,y=1050)
+ent_Change_Phone.place(x=1160,y=450)
 
-ent_Change_WorkPlace = Text(window, fg= 'white', font='Inter 10', bg='#594036', width=70 ,height=1, padx=10, pady=10,
+ent_Change_WorkPlace = Text(window, fg= 'white', font='Inter 10', bg='#594036', width=60 ,height=1, padx=10, pady=10,
                             state='disabled')
-ent_Change_WorkPlace.place(x=620,y=1050)
+ent_Change_WorkPlace.place(x=1620,y=450)
 
-Label(window, text="Должность", font='Inter 10 bold', bg='#D9CDB8', ).place(x=20, y=1090)
-Label(window, text="Характер", font='Inter 10 bold', bg='#D9CDB8', ).place(x=620, y=1090)
-ent_Change_Position = Text(window, fg= 'white', font='Inter 10', bg='#594036', width=70 ,height=1, padx=10, pady=10,
+Label(window, text="Должность", font='Inter 10 bold', bg='#D9CDB8', ).place(x=1160, y=490)
+Label(window, text="Характер", font='Inter 10 bold', bg='#D9CDB8', ).place(x=1620, y=490)
+
+ent_Change_Position = Text(window, fg= 'white', font='Inter 10', bg='#594036', width=60 ,height=1, padx=10, pady=10,
                            state='disabled')
-ent_Change_Position.place(x=20,y=1120)
-ent_Change_Personality = Text(window, fg= 'white', font='Inter 10', bg='#594036', width=70 ,height=1, padx=10, pady=10,
+ent_Change_Position.place(x=1160,y=520)
+ent_Change_Personality = Text(window, fg= 'white', font='Inter 10', bg='#594036', width=60 ,height=1, padx=10, pady=10,
                               state='disabled')
-ent_Change_Personality.place(x=620,y=1120)
+ent_Change_Personality.place(x=1620,y=520)
 
-Label(window, text="Деловые качества", font='Inter 10 bold', bg='#D9CDB8', ).place(x=20, y=1160)
-Label(window, text="Дата рождения", font='Inter 10 bold', bg='#D9CDB8', ).place(x=620, y=1160)
+Label(window, text="Деловые качества", font='Inter 10 bold', bg='#D9CDB8', ).place(x=1160, y=560)
+Label(window, text="Дата рождения", font='Inter 10 bold', bg='#D9CDB8', ).place(x=1620, y=560)
 
-ent_Change_Qualities = Text(window, fg= 'white', font='Inter 10', bg='#594036', width=70 ,height=1, padx=10, pady=10,
+ent_Change_Qualities = Text(window, fg= 'white', font='Inter 10', bg='#594036', width=60 ,height=1, padx=10, pady=10,
                             state='disabled')
-ent_Change_Qualities.place(x=20,y=1190)
+ent_Change_Qualities.place(x=1160,y=590)
 
-ent_Change_Birthdate = Text(window, fg= 'white', font='Inter 10', bg='#594036', width=70 ,height=1, padx=10, pady=10,
+ent_Change_Birthdate = Text(window, fg= 'white', font='Inter 10', bg='#594036', width=60 ,height=1, padx=10, pady=10,
                             state='disabled')
-ent_Change_Birthdate.place(x=620,y=1190)
+ent_Change_Birthdate.place(x=1620,y=590)
 
-btn_Change_Data = Button(window, text="Изменить запись", fg= 'white', font='Inter 10', bg='#260101', width=20 ,height=2,
+btn_Change_Data = Button(window, text="Изменить запись", fg= 'white', font='Inter 15', bg='#260101', width=20 ,height=2,
                          command=change_Data, state='disabled')
-btn_Change_Data.place(x=680,y=1245)
-btn_Delete_Data = Button(window, text="Удалить запись", fg= 'white', font='Inter 10', bg='#260101', width=20 ,height=2,
+btn_Change_Data.place(x=1500,y=660)
+btn_Delete_Data = Button(window, text="Удалить запись", fg= 'white', font='Inter 15', bg='#260101', width=20 ,height=2,
                          command= delete_Data, state='disabled')
-btn_Delete_Data.place(x=910,y=1245)
+btn_Delete_Data.place(x=1800,y=660)
 
 #Кнопка добавления записи
-btn_Сreate_Data = Button(window, text="Добавить запись", fg= 'white', font='Inter 10', bg='#260101', width=20 ,height=2,
+btn_Сreate_Data = Button(window, text="Добавить запись", fg= 'white', font='Inter 15', bg='#260101', width=20 ,height=2,
                          command=create_Data)
-btn_Сreate_Data.place(x=180,y=1245)
+btn_Сreate_Data.place(x=1200,y=660)
 
 window.protocol("WM_DELETE_WINDOW", on_Closing)
 window.mainloop()

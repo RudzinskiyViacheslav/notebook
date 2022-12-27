@@ -17,7 +17,7 @@ def create_New_Window(window):
         add_New_Data = {'name': add_Name, 'adress': add_Adress, 'phone': add_Phone, 'birth': add_Birthdate,
                          'workplace': add_Workplace, 'position': add_Position, 'personality': add_Personality,
                          'qualities': add_Qualities, 'correction_date': add_Correction_Date}
-        print(add_New_Data)
+
         for value in add_New_Data.values():
             if value == '':
                 tkinter.messagebox.showwarning(title=None, message='Заполните все поля',)

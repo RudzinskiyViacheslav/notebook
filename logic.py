@@ -11,8 +11,6 @@ def data_Init():
 
     with open('DataBase.pickle', 'rb') as f:
         AllData = pickle.load(f)
-    print(AllData)
-    print(type(AllData))
 
     # name = 'Рудзинский Вячеслав Викторович'
     # adress = 'Южнобутовскя 113'
@@ -111,9 +109,11 @@ def show_birth():
     current_Date = datetime.today()
     for item in AllData:
         if (datetime.strptime(item['birth'], "%d.%m.%Y")).day == current_Date.day:
-            result_Data.append('Сегодня день рождения у {0}! Позвоните по номеру {1} '
-                               'и поздравьте!'.format(item['name'], item['phone']))
-            return result_Data
+            if (datetime.strptime(item['birth'], "%d.%m.%Y")).month == current_Date.month:
+                result_Data.append('Сегодня день рождения у {0}! Позвоните по номеру {1} '
+                                   'и поздравьте!'.format(item['name'], item['phone']))
+
+    return result_Data
 
 def update_Data(data_To_Update, index):
     AllData[index].update(data_To_Update)
